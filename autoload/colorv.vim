@@ -172,7 +172,7 @@ function! colorv#rgb2hex(rgb)   "{{{
     let r = r>255 ? 255 : r<0 ? 0 : r
     let g = g>255 ? 255 : g<0 ? 0 : g
     let b = b>255 ? 255 : b<0 ? 0 : b
-    return printf("%02X%02X%02X",float2nr(r+0.0),
+    return printf("%02x%02x%02x",float2nr(r+0.0),
                 \float2nr(g+0.0),float2nr(b+0.0))
 endfunction "}}}
 function! colorv#hex2rgb(hex) "{{{
@@ -181,7 +181,7 @@ function! colorv#hex2rgb(hex) "{{{
        let hex=substitute(hex,'.','&&','g')
     endif
     if len(hex) < 6
-       let hex=printf("%06X","0x".hex)
+       let hex=printf("%06x","0x".hex)
     endif
     return [str2nr(hex[0:1],16),str2nr(hex[2:3],16),str2nr(hex[4:5],16)]
     " return ["0x".hex[0:1],"0x".hex[2:3],"0x".hex[4:5]]
@@ -636,7 +636,7 @@ endfunction "}}}
 function! s:hexa2rgba(hexa) "{{{
     let hex=substitute(a:hexa,'#\|0x\|0X','','')
     if len(hex) < 8
-       let hex=printf("%08X","0x".hex)
+       let hex=printf("%08x","0x".hex)
     endif
     return [str2nr(hex[0:1],16), str2nr(hex[2:3],16),
             \str2nr(hex[4:5],16), str2nr(hex[6:7],16)]
@@ -647,7 +647,7 @@ function! s:rgba2hexa(rgba) "{{{
     let g= g>255 ? 255 : g<0 ? 0 : g
     let b= b>255 ? 255 : b<0 ? 0 : b
     let a= a>255 ? 255 : a<0 ? 0 : a
-    return printf("%02X%02X%02X%02X",r,g,b,a)
+    return printf("%02x%02x%02x%02x",r,g,b,a)
 endfunction "}}}
 
 " Operation
@@ -1486,7 +1486,7 @@ function! s:fmt_hex(hex) "{{{
         call colorv#debug("Formated Hex too long. Truncated")
         let hex = hex[:5]
    endif
-   return printf("%06X","0x".hex)
+   return printf("%06x","0x".hex)
 endfunction "}}}
 
 function! colorv#echo_tips() "{{{

@@ -25,7 +25,7 @@ if __name__ == "__main__":
                 r,g,b = map(lambda x: 0 if x < 0 else 255 if x > 255 else x,
                         map(lambda x: int(round(float(x))),
                         [clr.red/257,clr.green/257,clr.blue/257]))
-                c_hex = '%02X%02X%02X' % (r,g,b)
+                c_hex = '%02x%02x%02x' % (r,g,b)
                 print(c_hex,end='')
 
             cdlg.destroy()

@@ -18,7 +18,7 @@ def hex2rgb(h):
 def rgb2hex(rgb):
     r,g,b = map(lambda x: 0 if x < 0 else 255 if x > 255 else x,
             map(lambda x: int(round(float(x))),rgb))
-    return '%02X%02X%02X' % (r,g,b)
+    return '%02x%02x%02x' % (r,g,b)
 
 #hsv
 def rgb2hsv(rgb):
@@ -202,7 +202,7 @@ fmt['HSVA']=re.compile(r'''(?ix)                 # [iLmsux] i:igone x:verbose
 
 fmt['HEX']=re.compile(r'''(?ix)
         ([#]|\b0x|\b)                     # ffffff #ffffff 0xffffff
-        (?P<HEX>[0-9A-F]{6})            #group HEX in upper 'FFFFFF'
+        (?P<HEX>[0-9a-fA-F]{6})            #group HEX in upper 'FFFFFF'
         (?!\w)     ''')
 fmt['HEX3']=re.compile(r'''(?ix)
         [#](?P<HEX3>[0-9a-fA-F]{3})(?!\w)''')
